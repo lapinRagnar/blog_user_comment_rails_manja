@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
-    @comment.save
+    @comment.save    
     redirect_back(fallback_location: root_path)
   end
 
