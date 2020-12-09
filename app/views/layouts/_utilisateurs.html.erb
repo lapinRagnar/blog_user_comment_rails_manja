@@ -1,8 +1,13 @@
 <% if current_user%>
   
- 
+  
+  <%= current_user.to_json %>
 
   <%= link_to "Editer votre compte", edit_user_registration_path(current_user) , class: "btn btn-primary mb-5"%>
+
+  <div class="div">
+    <%= image_tag(current_user.avatar_thumbnail)%>
+  </div>
 
   <div class="card">
 
