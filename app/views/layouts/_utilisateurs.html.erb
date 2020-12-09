@@ -1,0 +1,15 @@
+<% if current_user%>
+
+  <%=  current_user.to_json %>
+  <p>
+    <%= current_user.email %>
+  </p>
+
+<% else %>
+
+  <p>T'es pas connacté!</p>
+
+  <h3>Les Utulisateurs recents</h3>
+
+
+<% end %>
