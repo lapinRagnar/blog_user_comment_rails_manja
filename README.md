@@ -21,4 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* petit blog avec devise user 
++ commentaire 
++ ajout rich text 
++ Ruby on rails
