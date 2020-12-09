@@ -1,18 +1,23 @@
+<% if user_signed_in?%>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
+
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
+
+<table class="table table-responsive ">
+  <thead class="thead" >
+    <tr >
+      <th  >Title</th>
+      <th  >Body</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="tbody " >
     <% @posts.each do |post| %>
-      <tr>
+      <tr class="border-primary" >
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         
@@ -28,7 +33,4 @@
 </table>
 
 <br>
-<% if user_signed_in?%>
-  <%= link_to 'New Post', new_post_path %>
 
-<% end %>

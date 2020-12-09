@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   
+  root 'pages#index'
+  get 'pages/nouveaute'
+  get 'pages/membre'
+  get 'pages/apropos'
+
   get 'users/index'
+
   devise_for :users
   
   resources :posts do
@@ -8,7 +14,7 @@ Rails.application.routes.draw do
   end
 
 
-  root 'posts#index'
+  
 
   
 end
