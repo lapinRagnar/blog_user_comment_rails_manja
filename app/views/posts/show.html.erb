@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+
+<% if @post.image.attached? %>
+  <image src="<%= url_for(@post.image) %> " width="600" height="auto" >
+<% end %>
 
 <p>
   <strong>Title:</strong>

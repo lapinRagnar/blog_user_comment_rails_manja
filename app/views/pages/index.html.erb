@@ -1,2 +1,19 @@
 <h1>Pages#index</h1>
 <p>Find me in app/views/pages/index.html.erb</p>
+
+
+<ul class="list-group">
+  <% @posts.each do |p| %>
+    <li class="list-group">
+      <%= p.title%> | 
+    </li>
+    <li class="list-group-item">
+      <%= truncate(p.body, length: 200){ link_to "Continue", p} %>
+    </li>
+  <%end%>
+
+</ul>
+
+
+
+<br>

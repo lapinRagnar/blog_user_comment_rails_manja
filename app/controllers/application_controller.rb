@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
+
+    # pour changer la redirect_to de devise après le login
+    def after_sign_in_path_for(resource)
+        posts_path
+    end
     
 
     protected
