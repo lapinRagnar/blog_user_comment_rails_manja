@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     post 'comments', to: 'comments#create'
+    delete 'comment', to: 'comments#destroy'
   end
 
 

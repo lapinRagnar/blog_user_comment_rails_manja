@@ -10,9 +10,9 @@ class User < ApplicationRecord
   has_one_attached :avatar
   after_commit :add_default_avatar, on: %i[create update]
 
-  def username
-    return email.split('@')[0].capitalize
-  end
+  #def username
+    #return email.split('@')[0].capitalize
+  #end
 
   def avatar_thumbnail
     if avatar.attached?

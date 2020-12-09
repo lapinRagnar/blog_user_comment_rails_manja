@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.order("created_at DESC")
+    @users = User.all # c'est un essai
   end
 
   # GET /posts/new

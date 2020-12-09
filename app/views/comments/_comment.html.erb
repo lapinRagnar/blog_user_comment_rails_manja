@@ -1,9 +1,15 @@
  
-      
-<% if current_user.avatar.attached? %>
-  <image src="<%= url_for(current_user.avatar) %> " width="30" height="auto" class="img_avatar_rounded" > <%= current_user.username  %> 
-<% end %>    
 
+
+<% if comment.user.avatar.attached? %>
+  <image src="<%= url_for(comment.user.avatar) %> " width="50" height="auto" class="img_avatar_rounded" > <%= comment.user.username  %> 
+<% end %>    
+ 
 
 [ <%= comment.created_at.strftime("%R:%S  %a- %d -%b -%Y") %> ] <%= comment.user.username %>: <%= comment.body %> <br>
+
+
+<p>
+  <%= link_to "Suppr", [comment.post, comment], method: :delete, data: {confirm: "T'es sure?"} %>
+</p>
 

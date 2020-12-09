@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :set_post
+  before_action :set_post 
   before_action :authenticate_user!
 
   def create
@@ -12,6 +12,12 @@ class CommentsController < ApplicationController
 
   def destroy
 
+    #@comment = @post.comments.where(post_id: @post.id)
+    @comment = @post.comments.find(params[:id])
+    @comment.each do |c|
+      c.destroy
+    end
+    redirect_to post_path(@post)
   end
 
 
