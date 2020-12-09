@@ -1,19 +1,28 @@
 <h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
 
-
-<ul class="list-group">
+<ul class="list-group md-5 ">
   <% @posts.each do |p| %>
-    <li class="list-group">
-      <%= p.title%> | 
+
+    <% if p.image.attached? %>
+      <image src="<%= url_for(p.image) %> " width="600" height="auto" >
+    <% end %>
+
+    
+
+    <li class="list-group list-group-item-warning">
+      <%= p.title%> |
+        par ..... 
+
+        
+        
+        && 
+       ( <%= pluralize(p.comments.count, "commentraire") %> )
     </li>
-    <li class="list-group-item">
-      <%= truncate(p.body, length: 200){ link_to "Continue", p} %>
+    <li class="list-group-item ">
+      <%= truncate(strip_tags(p.body.to_s), length: 200){ link_to "Continue", p} %>
     </li>
   <%end%>
 
 </ul>
 
-
-
-<br>
+<br> <br> <br> <br>

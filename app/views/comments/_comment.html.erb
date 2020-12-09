@@ -1,4 +1,9 @@
  
+      
+<% if current_user.avatar.attached? %>
+  <image src="<%= url_for(current_user.avatar) %> " width="30" height="auto" class="img_avatar_rounded" > <%= current_user.username  %> 
+<% end %>    
+
 
 [ <%= comment.created_at.strftime("%R:%S  %a- %d -%b -%Y") %> ] <%= comment.user.username %>: <%= comment.body %> <br>
 

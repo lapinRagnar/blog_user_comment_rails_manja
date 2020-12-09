@@ -1,6 +1,4 @@
-<% if current_user%>
-  
-  
+<% if current_user %>  
   
 
   <%= link_to "Editer votre compte", edit_user_registration_path(current_user) , class: "btn btn-primary mb-5"%>
@@ -46,11 +44,22 @@
   </div>
 
 
-<% else %>
+
+
+<% elsif @users %>
 
   <p>T'es pas connacté!</p>
-
   <h3>Les Utulisateurs recents</h3>
+
+  <%= " Nb total d'abonnée : " + @users.count.to_s %>  
+
+  <% @users.each do |u| %>
+      <div >       
+        <% if u.avatar.attached? %>
+          <image src="<%= url_for(u.avatar) %> " width="50" height="auto" class="img_avatar_rounded" > <%= u.username  %> 
+        <% end %>    
+      </div>
+  <% end %>
 
 
 <% end %>

@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  before_action :tous_les_users
+
   def index
     @posts = Post.all
   end
@@ -7,8 +10,18 @@ class PagesController < ApplicationController
   end
 
   def membre
+
   end
 
   def apropos
   end
+
+  private
+
+  def tous_les_users
+    @users = User.all
+  end
+
+
+
 end

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     # pour changer la redirect_to de devise après le login
     def after_sign_in_path_for(resource)
-        posts_path
+        root_path
     end
     
 
