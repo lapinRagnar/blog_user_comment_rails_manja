@@ -19,7 +19,7 @@
           </div>
 
           <% if devise_mapping.rememberable? %>
-            <div class="form-check mb-3">
+            <div class="col-12 mb-3">
               <%= f.check_box :remember_me, class: ""  %>
               <%= f.label :remember_me, class: "form-check-label" %>
             </div>
@@ -33,6 +33,11 @@
     
     </div>
 
-    <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
+
+    <div class="card-footer ">
+        ....
+    </div>
+
 
 </div>
