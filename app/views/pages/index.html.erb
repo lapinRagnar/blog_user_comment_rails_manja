@@ -1,22 +1,17 @@
-<h1>Pages#index</h1>
+<h1>Bienvenue sur mon Super Blog</h1>
 
-<ul class="list-group md-5 ">
+<ul class="list-group ">
   <% @posts.each do |p| %>
 
     <% if p.image.attached? %>
-      <image src="<%= url_for(p.image) %> " width="600" height="auto" >
-    <% end %>
-
-    
+      <image src="<%= url_for(p.image) %> " width="200" height="auto" >
+    <% end %>    
 
     <li class="list-group list-group-item-warning">
       <%= p.title%> |
-        par ..... 
-
-        
-        
+        par .....         
         && 
-       ( <%= pluralize(p.comments.count, "commentraire") %> )
+       ( <%= pluralize(p.comments.count, "comment") %> )
     </li>
     <li class="list-group-item ">
       <%= truncate(strip_tags(p.body.to_s), length: 200){ link_to "Continue", p} %>
@@ -25,4 +20,4 @@
 
 </ul>
 
-<br> <br> <br> <br>
+<br> 

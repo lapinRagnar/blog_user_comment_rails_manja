@@ -13,18 +13,20 @@
   <body>
 
 
-    <%= render "layouts/navbar" %>    
-    <%= render 'layouts/alerts' %>
+    <%= render "layouts/navbar" %> 
+    <div class="">
+      <%= render 'layouts/alerts' %>
+    </div>   
 
     <div class="container">
 
       <div class="row">
 
-        <div class="col-sm-8">
+        <div class="col-sm-8 shadow-lg p-3 mb-5 bg-white rounded ">
           <%= yield %>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 ">
           <%= render 'layouts/utilisateur' %>
         </div>
       

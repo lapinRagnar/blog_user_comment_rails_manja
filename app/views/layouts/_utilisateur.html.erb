@@ -1,65 +1,79 @@
 <% if current_user %>  
   
 
-  <%= link_to "Editer votre compte", edit_user_registration_path(current_user) , class: "btn btn-primary mb-5"%>
+  <div class="mb-3 d-flex align-items-center justify-content-center ">
+      <%= link_to "Editer compte", edit_user_registration_path(current_user) , class: "btn btn-primary   "%>
+  </div>
 
-  <div class="div">
-    <%= image_tag(current_user.avatar_thumbnail)%>
+  <div class="mb-3 d-flex align-items-center justify-content-center rounded-circle ">
+    <%= image_tag(current_user.avatar_thumbnail, class: "rounded-circle shadow-sm  ")%>
   </div>
 
   <div class="card">
 
-    <div class="card-header">
+    <div class="card-header shadow-sm p-3 mb-1 bg-white rounded ">
       <h4>Mes infos</h4>
     </div>
 
-   <div class="card-body">
+   <div class="card-body shadow-sm p-3 mb-1 bg-white rounded ">
 
-    <p class="card-text" >
-      Pseudo : <%= current_user.username ? current_user.username : "Rien" %>
-    </p>
+      <div class="card-text" >
+        Pseudo : <%= current_user.username ? current_user.username : "vide" %>
+      </div>
 
-    <p class="card-text" >
-      Nom: <%= current_user.first_name ? current_user.first_name : "Rien" %>
-    </p>
+      <div class="card-text" >
+        Nom: <%= current_user.first_name ? current_user.first_name : "vide" %>
+      </div>
 
-    <p class="card-text" >
-      Prenom: <%= current_user.last_name ? current_user.last_name : "rien" %>
-    </p>
+      <div class="card-text" >
+        Prenom: <%= current_user.last_name ? current_user.last_name : "vide" %>
+      </div>
 
-    <p class="card-text" >
-      Lieu: <%= current_user.location ? current_user.location : "rien" %>
-    </p>
+      <div class="card-text" >
+        Lieu: <%= current_user.location ? current_user.location : "vide" %>
+      </div>
 
-    <p class="card-text" >
-      Role: <%= current_user.role ? current_user.role : "Rien" %>
-    </p>
+      <div class="card-text" >
+        Role: <%= current_user.role ? current_user.role : "vide" %>
+      </div>
 
 
-    <p class="card-text" >
-      Email: <%= current_user.email %>
-    </p>
+      <p class="card-text" >
+        Email: <%= current_user.email %>
+      </p>
 
    </div>
+
   </div>
-
-
 
 
 <% elsif @users %>
 
-  <p>T'es pas connacté!</p>
-  <h3>Les Utulisateurs recents</h3>
+  <div class="card shadow-lg p-3 mb-5 bg-white rounded ">
 
-  <%= " Nb total d'abonnée : " + @users.count.to_s %>  
+      <div class="card-header border border-4 ">
 
-  <% @users.each do |u| %>
-      <div >       
-        <% if u.avatar.attached? %>
-          <image src="<%= url_for(u.avatar) %> " width="50" height="auto" class="img_avatar_rounded" > <%= u.username  %> 
-        <% end %>    
+          <p>T'es pas connecté!</p>      
+          <h5 class="card-title" >Les Utulisateurs recents</h5>
+          <%= " Nb total d'abonnée : " + @users.count.to_s %>  
+      
       </div>
-  <% end %>
+
+      <div class="card-body border border-warning ">
+
+          <% @users.each do |u| %>
+
+            <div class="card-text" >       
+              <% if u.avatar.attached? %>
+                <image src="<%= url_for(u.avatar) %> " width="50" height="auto" class="img_avatar_rounded" > <%= u.username  %> 
+              <% end %>    
+            </div>
+
+          <% end %>   
+      
+      </div>
+
+  </div>
 
 
 <% end %>

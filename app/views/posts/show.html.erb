@@ -1,18 +1,25 @@
 
-<% if @post.image.attached? %>
-  <image src="<%= url_for(@post.image) %> " width="600" height="auto" >
-<% end %>
+<div class="mb-3">
+  <% if @post.image.attached? %>
+    <image src="<%= url_for(@post.image) %> " width="500" height="auto" >
+  <% end %>
+</div>
+
+<div class="mb-3" >
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning" %> |
+    <%= link_to 'Back', root_path %>
+</div>
 
 
-<div class="card ">
+<div class="card mb-3">
 
-  <p class="card-header" >
-    <strong> <%= @post.title %> </strong>  
-  </p>
+  <div class="card-header" >
+    <h5> <%= @post.title %> </h5>  
+  </div>
 
-  <p class="card-body" >
+  <div class="card-body justifier_body" >
     <%= @post.body %>
-  </p>
+  </div>
 
 </div>
 
@@ -22,30 +29,28 @@
   <% end %>
 </div>
 
-|
-<%= link_to 'Back', posts_path %>
 
+  <% if current_user %>
 
+    <%= form_with model: [@post, @comment], local: true  do |f| %>
+    
+      <div class="justifier_body">
+        <%= f.text_field :body %>
+      </div>
+      <%= f.submit "Commenter" , class: "btn btn-success" %>
+    <% end %> 
 
-<% if current_user %>
+  <% else %>
 
+    <div>
+      Tu dois être connecter pour laisser un commentaire ( <%= link_to "login", new_user_session_path, class: "btn btn-success" %> )
+    </div>
 
-  
-  <%= link_to 'Edit', edit_post_path(@post) %> 
-
-  <%= form_with model: [@post, @comment], local: true  do |f| %>
-   
-    <%= f.text_field :body %>
-    <%= f.submit "Commenter" %>
   <% end %>
 
-<% else %>
 
-  <p>
-    Tu dois être connecter pour laisser un commentaire ( <%= link_to "login", new_user_session_path %> )
-  </p>
 
-<% end %>
+
 
 
 
