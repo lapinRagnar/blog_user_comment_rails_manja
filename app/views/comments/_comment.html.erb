@@ -1,15 +1,19 @@
  
 
 
-<% if comment.user.avatar.attached? %>
-  <image src="<%= url_for(comment.user.avatar) %> " width="50" height="auto" class="img_avatar_rounded" > <%= comment.user.username  %> 
-<% end %>    
+<div class="">
+
+  <% if comment.user.avatar.attached? %>
+    <image src="<%= url_for(comment.user.avatar) %> " width="50" height="auto" class="img_avatar_rounded" >  <%= comment.user.username  %> -
+  <% end %>    
  
+[ <%= comment.created_at.strftime("%R:%S  %a- %d -%b -%Y") %> ] -  <%= comment.user.username %> : <span class="text-success" ><%= comment.body %> </span>
 
-[ <%= comment.created_at.strftime("%R:%S  %a- %d -%b -%Y") %> ] <%= comment.user.username %>: <%= comment.body %> <br>
+  <%= link_to [comment.post, comment], method: :delete, data: {confirm: "T'es sure?"}, class: "btn text-danger "  do %>
+    <i class="fas fa-trash-alt"  ></i>
+  <% end %>
+</div>
 
 
-<p>
-  <%= link_to "Suppr", [comment.post, comment], method: :delete, data: {confirm: "T'es sure?"} %>
-</p>
+
 
