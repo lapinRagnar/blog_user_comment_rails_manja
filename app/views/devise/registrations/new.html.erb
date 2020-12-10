@@ -37,10 +37,13 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
           </div>
 
-          <div class="actions mb-3">
-            <%= f.submit "Sign up", class: "btn btn-success" %>
+          <div class="justify-content-center align-items-center d-flex mt-5 mb-3">
+            <%= button_tag :submit , class: "btn btn-success", style: " width: 200px "  do %>
+              <i class="fas fa-user-plus"></i> Sign up
+            <% end %>
           </div>
         <% end %>
+        
       <%= render "devise/shared/links" %>
 
     </div>    
