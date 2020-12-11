@@ -1,4 +1,52 @@
-<h1>Bienvenue sur mon Super Blog</h1>
+<h1 >Bienvenue sur mon Super Blog</h1>
+
+<div class="row row-cols-1 row-cols-4 p-5"  style=" background-color: #A59F17 " >
+
+    <% @posts.each do |p| %>
+
+        <div class="col mb-4">      
+
+          <div class="card h-100 "  >
+          
+              <div class="card-header">
+                <% if p.image.attached? %>
+                  <image src="<%= url_for(p.image) %> " width="200" max-height="200px%" >
+                <% end %>    
+              </div>
+
+              <div class= "card-header" >
+                <%= p.title%> |
+                  par .....         
+                  &&         
+                ( <%= pluralize(p.comments.count, "comment") %> )
+              </div>
+
+              <div class="card-body">
+
+                  <div class="card-text">
+                    <%= truncate(strip_tags(p.body.to_s), length: 200){ link_to "La suite...", p} %>
+                  </div>
+
+
+              </div>
+
+              <div class="card-footer">
+                <small class="text-muted">
+                  foot ............. vote (*****) crée par Nom du créateur
+                </small>
+              </div>
+          
+          
+          </div>   
+    
+        </div>
+
+    <%end%>
+
+</div>
+
+
+<hr>
 
 <ul class="list-group ">
 
@@ -25,4 +73,5 @@
 
 </ul>
 
-<br> 
+
+

@@ -49,9 +49,12 @@
 
       <div class="card-header border border-4 ">
 
-          <p>T'es pas connecté!</p>      
-          <h5 class="card-title" >Les Utulisateurs recents</h5>
-          <%= " Nb total d'abonnée : " + @users.count.to_s %>  
+          <div>Pas connecté!</div>      
+          <h5 class="card-title" >Users recents</h5>
+          <div class="">
+            <%= " Nb d'abonnée : " + @users.count.to_s %>  
+          </div>
+
       
       </div>
 
