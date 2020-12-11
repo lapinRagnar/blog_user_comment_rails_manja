@@ -17,7 +17,7 @@
     location: Faker::Address.country,
     role: Faker::Boolean,
     password: "aaecqjaugda",
-    password_confirmation: "aaecqjaugda"
+    password_confirmation: "blabla"
 
   )
 
